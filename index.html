@@ -1,6 +1,46 @@
 <html>
   <head>
+  <title> icy-cube  </title>
+  <style media="screen" type="text/css">
+  .navbar {
+    list-style-type: none;
+    text-align : justify;
+    width: 100%;
+  }
+
+  .navbar li {
+        display: inline-block;
+        width : 19%
+  }
+
+  .navbar em {
+    font-weight: bold;
+    color : green;
+  }
+  
+  .time {
+    text-align : center;
+  }
+  </style>
+
   </head>
   <body>
+
+  <p class = time , id ="Date"> </p>
+  <ul class="navbar">
+    <li>S-Band Downlink <em> Up </em> </li>
+    <li>SESLO Status <em> Up </em> </li>
+    <li>SESLO Temp <em> 5.69 C </em> </li>
+    <li>SEVO Status <em> Up </em> </li>
+    <li>SEVO Temp  <em> 2.14 C </em> </li>
+  </ul>
   </body>
+
+  <script> 
+     function updateTime(){
+     document.getElementById("Date").innerHTML = new Date().toLocaleString();
+     }
+
+     setInterval(updateTime,1000);
+ </script> 
 </html>
