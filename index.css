@@ -36,3 +36,24 @@ h1,h2,h3 {
 margin: 0;
 line-height: 40px;
 }
+
+.navbar {
+  list-style-type: none;
+  text-align : justify;
+  width: 100%;
+}
+
+navbar li {
+      display: inline-block;
+      width : 19%
+}
+
+navbar em {
+  font-weight: bold;
+  color : green;
+}
+
+time {
+  text-align : center;
+}
+

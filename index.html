@@ -1,39 +1,53 @@
 <html>
   <head>
-  <title> Icy-Cube </title>
-  <link rel="stylesheet" type="text/css" href="index.css">
-
+    <title> Icy-Cube </title>
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-  <div id="navbar">
-  <div id="icy-cube"><h1> icy-cube </h1></div>
-  <div id="about"><h2> About </h2></div>
-  <div id="overview"><h2> Mission Overview </h2></div>
-  <div id="documentation"><h2> Documentation </h2></div>
-  <div id="signin"><h3> Sign In </h3></div>
-  </div>
-  <canvas id="map" width="800" height="399">
-  </canvas>
-  <script>
-  console.log("Hello World");
-  var canvas = document.getElementById("map");
-var context = canvas.getContext("2d"); // returns a CanvasRenderingContext2D
-var imageObj = new Image();
+    <div id="navbar">
+      <div id="icy-cube"><h1> icy-cube </h1></div>
+      <div id="about"><h2> About </h2></div>
+      <div id="overview"><h2> Mission Overview </h2></div>
+      <div id="documentation"><h2> Documentation </h2></div>
+      <div id="signin"><h3> Sign In </h3></div>
+    </div>
+    <p class = time , id ="Date"> </p>
+    <ul class="navbar">
+      <li>S-Band Downlink <em> Up </em> </li>
+      <li>SESLO Status <em> Up </em> </li>
+      <li>SESLO Temp <em> 5.69 C </em> </li>
+      <li>SEVO Status <em> Up </em> </li>
+      <li>SEVO Temp  <em> 2.14 C </em> </li>
+    </ul>
 
-imageObj.onload = function() {
-        context.drawImage(imageObj, 0, 0, 800, 399);
-	   //context.drawImage(imageObj,0,0);
-	   draworbit();
+    <canvas id="map" width="800" height="399">
+    </canvas>
+    <script>
+      console.log("Hello World");
+      var canvas = document.getElementById("map");
+      var context = canvas.getContext("2d"); // returns a CanvasRenderingContext2D
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+      context.drawImage(imageObj, 0, 0, 800, 399);
+      //context.drawImage(imageObj,0,0);
+      draworbit();
       };
-imageObj.src = 'earth.jpg';
-context.fillStyle = '#009933';
-//var satelliteCoordinates;
-draworbit = function () {
-for(var i = 0; i < 800; i++)
-	context.fillRect(i,200 + 150*Math.sin((0.888)*Math.PI*i/180),2,2);
-}
+      imageObj.src = 'earth.jpg';
+      context.fillStyle = '#009933';
+      //var satelliteCoordinates;
+      draworbit = function () {
+      for(var i = 0; i < 800; i++)
+                         context.fillRect(i,200 + 150*Math.sin((0.888)*Math.PI*i/180),2,2);
+                         }
 
-</script>
-  
+                         </script>
   </body>
+  <script>
+    function updateTime(){
+    document.getElementById("Date").innerHTML = new Date().toLocaleString();
+    }
+
+    setInterval(updateTime,1000);
+  </script>
 </html>
