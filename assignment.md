@@ -83,8 +83,8 @@ project. Look at a diff of the latest commit.
 The provided document (`index.html`) is not fully in HTML form. Add a
 title to the page (`icy-cube` will do for now).
 
-Use HTML and CSS to make the navbar (the top row) look like the
-provided image (`expected.png`).
+Use HTML and CSS to make the second row of the navbar (the one below
+the timer) look like the provided image (`expected.png`).
 
 ### JavaScript
 
