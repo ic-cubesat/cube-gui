@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title> Icy-Cube Console </title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="input.css">
+    <script type='text/javascript' src='console.js'></script>
+  </head>
+  <body>
+    <div id="navbar">
+      <div id="icy-cube"><h1> icy-cube </h1></div>
+      <div id="about"><h2> About </h2></div>
+      <div id="overview"><h2> Mission Overview </h2></div>
+      <div id="documentation"><h2> Documentation </h2></div>
+      <div id="signin"><h3> Sign In </h3></div>
+    </div>
+    <p class = time , id ="Date"> </p>
+    <ul class="navbar">
+      <li>S-Band Downlink <em> Up </em> </li>
+      <li>SESLO Status <em> Up </em> </li>
+      <li>SESLO Temp <em> 5.69 C </em> </li>
+      <li>SEVO Status <em> Up </em> </li>
+      <li>SEVO Temp  <em> 2.14 C </em> </li>
+    </ul>
+
+
+    <div id="console_output">
+    </div>
+
+    <input id="console_input", type="text", onkeypress="handle_input(event)">
+
+
+  </body>
+</html>
