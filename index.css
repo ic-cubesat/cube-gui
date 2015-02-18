@@ -11,7 +11,7 @@ border-bottom: 3px solid #0099FF;
 }
 
 canvas {
-padding-left: 0;
+	padding-left: 0;
     padding-right: 0;
 	padding-top: 100;
     margin-left: auto;
@@ -20,8 +20,8 @@ padding-left: 0;
 }
 
 h1 {
-font-weight: bold;
-color: #000099;
+	font-weight: bold;
+	color: #000099;
 }
 
 h2 {
