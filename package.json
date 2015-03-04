@@ -1,0 +1,9 @@
+{
+  "name": "ic-cubesat-server",
+  "description": "The server for the imperial cubesat",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "~4.9.0"
+  }
+}
