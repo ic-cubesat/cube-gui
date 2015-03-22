@@ -1,8 +1,11 @@
 var fs = require('fs')
   , express = require('express')
   , http = require('http')
-  , config = require('./config.json');
+  , config = require('./config.json')
+  , SatComm = require('./satcomm');
 
+//var storage = new Storage('database.json');
+var cubesat = new SatComm('localhost', 3000);
 var app = express();
 app.set('view engine', 'jade');
 
@@ -14,25 +17,14 @@ app.get('/console', function(req, res) {
   res.sendFile(__dirname + '/public/input.html');
 });
 
-var net = require('net');
 // Route for commands
-app.post('/commands/tmpread', function(req, res) {
-  console.log('  Received command TMP_READ');
-  var client = net.connect(
-                {port: 3000},
-                function() { //'connect' listener
-                  console.log('  --> Connected to FakeSat!');
-                  client.write('TMP_READ');
-                });
-
-  client.on('data', function(data) {
-    console.log('  --> FakeSat response: ' + data.toString());
-    res.send(data);
-    client.end();
-  });
-
-  client.on('end', function() {
-    console.log('  --> Closing connection to FakeSat!');
+app.post('/command', function(req, res) {
+  var command = req.query.command;
+  console.log('Transmitting command ' + command);
+ 
+  // TODO: Better make sure the command is valid here
+  cubesat.send(command, function(err, reply) {
+    res.send(JSON.stringify({err: err, reply: reply}));
   });
 });
 
