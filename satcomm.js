@@ -6,23 +6,22 @@ function SatComm(host, port) {
   // Sends some data 
   this.send = function (data, callback) {
     // Open a new socket connection for each request
-    var sat = net.connect( {port: port}, function() {
+    var sat = net.connect( {host: host, port: port}, function() {
       console.log("Connected to satellite, sending data " + data);
       sat.write(data);
     });
 
+    res = '';
     sat.on('data', function(data) {
-      console.log("Satellite response: " + data.toString());
-      if(typeof callback === "function") {
-        callback(null, data.toString());
-      }
-
-      console.log("Terminating satellite connection");
-      sat.end();
+      res += data.toString();
+      console.log("Got chunk!");
     });
 
     sat.on('end', function() {
       console.log("Connection to satellite closed.");
+      if(typeof callback === "function") {
+        callback(null, res);
+      }
     });
   }
 }

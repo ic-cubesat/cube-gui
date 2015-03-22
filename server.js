@@ -5,7 +5,7 @@ var fs = require('fs')
   , SatComm = require('./satcomm');
 
 //var storage = new Storage('database.json');
-var cubesat = new SatComm('localhost', 3000);
+var cubesat = new SatComm('129.31.225.43', 3000);
 var app = express();
 app.set('view engine', 'jade');
 
@@ -24,7 +24,9 @@ app.post('/command', function(req, res) {
  
   // TODO: Better make sure the command is valid here
   cubesat.send(command, function(err, reply) {
+    console.log("Sending response to client...")
     res.send(JSON.stringify({err: err, reply: reply}));
+    fs.writeFile("sexy.jpg", reply, function() { console.log("Saved"); });
   });
 });
 
